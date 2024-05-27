@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>헤더</title>
+    <style>
+        .header-box {
+            height: 4.5rem;
+            background-color: #fff;
+        }
+
+        .header-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: 3.625rem;
+            padding: 1rem;
+            margin: 0 auto;
+            text-align: center;
+            border-bottom: .0625rem solid #f2f2f2;
+        }
+
+        .header-section-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 50.625rem;
+            height: 100%;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            margin-top: 0.4rem;
+            height: 1.6875rem;
+        }
+
+        .header-menu-box {
+            display: flex;
+            margin: 0;
+        }
+
+        .header-menu-container {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            margin-left: 1.125rem;
+        }
+        
+        .header-login-join-button-box {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .header-login-join-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-login-join-ul{
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .header-login-join-li {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-login-join-li:last-child {
+            margin-left: 1.125rem;
+        }
+
+        .header-login-join-li a {
+            font-size: .875rem;
+        }
+
+        .header-distributor-join-button {
+            width: 6rem;
+            padding: .40625rem 0;
+            font-size: .875rem;
+            border-radius: 6px;
+            margin-left: 1rem;
+            cursor: pointer;
+            background-color: #00c7ae;
+            border-color: #00c7ae;
+        }
+
+        .header-distributor-join-button a {
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            border: .0625rem solid transparent;
+            line-height: 1.5;
+        }
+
+        .header-mobile-box {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-login-join-button-box {
+                display: none;
+            }
+        
+            .header-web-menu-box {
+                display: none;
+            }
+
+            .header-mobile-box {
+                display: block;
+            }
+
+            .header-mobile-menu-icon-box {
+                justify-content: flex-start;
+            }
+
+            .header-mobile-menu-icon-box img {
+                vertical-align: middle;
+                width: 24px;
+            }
+            
+            .header-section-box {
+                justify-content: flex-start;
+            }
+
+            .logo-box {
+                margin-left: 1.525rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header-box">
+        <div class="header-container">
+            <div class="header-section-box">
+                <div class="header-mobile-box">
+                    <div class="header-mobile-menu-icon-box">
+                        <img src="/static/image/menu-icon.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-box">
+                    <div class="logo-container">
+                        <a href="#">
+                            <img class="header-logo" src="/static/image/logo.png">
+                        </a>   
+                    </div>
+                    <div class="header-web-menu-box">
+                        <nav>
+                            <ul class="header-menu-box">
+                                <li class="header-menu-container"><a href="#"><span>유통업체 게시판</span></a></li>
+                                <li class="header-menu-container"><a href="#"><span>자유 게시판</span></a></li>
+                                <li class="header-menu-container"><a href="#"><span>문의 게시판</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="header-login-join-button-box">
+                    <div class="header-login-join-box">
+                        <ul class="header-login-join-ul">
+                            <li class="header-login-join-li"><a href="#"><span>로그인</span></a></li>
+                            <li class="header-login-join-li"><a href="#"><span>회원가입</span></a></li>
+                        </ul>
+                    </div>
+                    <button class="header-distributor-join-button btn">
+                        <a href="#">유통업체 가입</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
