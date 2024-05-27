@@ -17,8 +17,10 @@ body {
     background-color: #fff;
 }
 
+
 button {
     border: none;
+    cursor: pointer;
 }
 
 a, a:hover {
