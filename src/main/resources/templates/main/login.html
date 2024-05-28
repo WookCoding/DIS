@@ -1,12 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/login/login.css">
+    <link rel="icon" href="/static/image/favicon.png">
     <title>로그인 화면</title>
 </head>
+
 <body>
-    
+    <div class="box">
+        <div class="container">
+            
+            <div id="header"></div>
+            <div class="login-box">
+                <div class="login-container">
+                    <div class="login-logo-box">
+                        <img src="/static/image/logo.png">
+                    </div>
+                    <div class="login-input-box">
+                        <div class="select-login-box">
+                            <div class="select-login-container">
+                                <button class="select-login-button select-login-button-active select-member">일반 로그인</button>
+                                <button class="select-login-button select-distributor">유통업체 로그인</button>
+                            </div>
+                        </div>
+                        <form action="#">
+                            <!-- 일반 사용자 로그인 -->
+                            <div class="login-form-box member-login">
+                                <div class="login-form-container">
+                                    <fieldset class="login-form-group">
+                                        <legend class="input-title">아이디</legend>
+                                        <div>
+                                            <input type="text" class="input-text input-identification" name="memberIdentification"
+                                                placeholder="아이디를 입력해주세요.">
+                                            <div class="error-msg id-error"></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="login-form-container">
+                                    <fieldset class="login-form-group">
+                                        <legend class="input-title">비밀번호</legend>
+                                        <div>
+                                            <input type="password" class="input-text input-password" name="memberPassword"
+                                                placeholder="비밀번호를 입력해주세요.">
+                                            <div class="error-msg password-error"></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="login-form-container">
+                                    <button class="login-button">로그인</button>
+                                </div>
+                            </div>
+
+                            <!-- 유통업체 로그인 -->
+                            <div class="login-form-box distributor-login">
+                                <div class="login-form-container">
+                                    <fieldset class="login-form-group">
+                                        <legend class="input-title">이메일</legend>
+                                        <div>
+                                            <input type="text" class="input-text input-email" name="distributorEmail"
+                                                placeholder="이메일을 입력해주세요.">
+                                            <div class="error-msg email-error"></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="login-form-container">
+                                    <fieldset class="login-form-group">
+                                        <legend class="input-title">비밀번호</legend>
+                                        <div>
+                                            <input type="password" class="input-text input-password" name="distributorPassword"
+                                                placeholder="비밀번호를 입력해주세요.">
+                                            <div class="error-msg password-error"></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="login-form-container">
+                                    <button class="login-button">로그인</button>
+                                </div>
+                            </div>
+
+                            <!-- 아이디  찾기 / 비밀번호 찾기 /  회원가입 -->
+                            <div class="login-form-container find-box">
+                                <div class="find-container">
+                                    <a href="#" >아이디 찾기</a>
+                                    <div class="line"></div>
+                                    <a href="#" >비밀번호 찾기</a>
+                                    <div class="line"></div>
+                                    <a href="#" >회원 가입</a>
+                                </div>
+                            </div>
+
+                            <div class="login-form-container">
+                                <button class="oauth-button oauth-button-kakao">
+                                    <img src="/static/image/comment-bubble-icon.png">
+                                    <p>카카오로 시작</p>
+                                </button>
+                            </div>
+                            <div class="login-form-container">
+                                <button class="oauth-button oauth-button-naver">
+                                    <p>네이버로 시작</p>
+                                </button>
+                            </div>
+                            <div class="login-form-container">
+                                <button class="oauth-button oauth-button-facebook">
+                                    <p>페이스북으로 시작</p>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+        $memberLogin = $(".member-login");
+        $distributorLogin = $(".distributor-login");
+        $selectMemberLoginButton = $(".select-member");
+        $selectDistributorLoginButton = $(".select-distributor");
+        $inputIdentification = $(".input-identification");
+        $inputPassword = $(".input-password");
+        $inputEmail = $(".input-email");
+        $idError = $(".id-error");
+        $emailError = $(".email-error");
+        $passwordError = $(".password-error");
+        
+        // 일반 로그인 버튼 클릭 
+        $selectMemberLoginButton.click((e) =>{
+            if(!$(e).hasClass("select-login-button-active")){
+                $selectMemberLoginButton.addClass("select-login-button-active");
+                $selectDistributorLoginButton.removeClass("select-login-button-active");
+                $memberLogin.show();
+                $distributorLogin.hide();
+            }
+        });
+        
+        // 유통업체 로그인 버튼
+        $selectDistributorLoginButton.click((e) =>{
+            if(!$(e).hasClass("select-login-button-active")){
+                $selectDistributorLoginButton.addClass("select-login-button-active");
+                $distributorLogin.show();
+                $memberLogin.hide();
+                $selectMemberLoginButton.removeClass("select-login-button-active");
+            }
+        });
+        
+        // 아이디 입력 확인
+        $inputIdentification.blur(() => {
+            if(!$inputIdentification.val()){
+                $idError.text("아이디를 입력해주세요.");
+                check[0] = false;
+            }else {
+                $idError.text("");
+                check[0] = true;
+            }
+        });
+
+        //  이메일 입력 확인
+        $inputEmail.blur(() => {
+            if(!$inputEmail.val()){
+                $emailError.text("이메일을 입력해주세요.");
+            }else {
+                $emailError.text("");
+            }
+        });
+
+        // 비밀번호 입력 확인
+        $inputPassword.each((i, e) => {
+            $(e).blur(() => {
+                if(!$(e).val()){
+                    $passwordError.eq(i).text("비밀번호를 입력해주세요.");
+                }else {
+                    $passwordError.eq(i).text("");
+                }
+            });
+        });
+       
+</script>
 </html>

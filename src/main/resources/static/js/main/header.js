@@ -27,10 +27,10 @@ $memberProfile.click(() => {
     if($memberDropDown.hasClass("check-arrow")){
         $memberDropDown.removeClass("check-arrow");
         $memberDropDown.slideUp();
-        $memberDropDownArrow.attr("src", "/static/image/down-arrow-icon.png");
+        $memberDropDownArrow.attr("src", "/image/down-arrow-icon.png");
     }else {
         $memberDropDown.addClass("check-arrow");
         $memberDropDown.slideDown();
-        $memberDropDownArrow.attr("src", "/static/image/up-arrow-icon.png");
+        $memberDropDownArrow.attr("src", "/image/up-arrow-icon.png");
     }
 });
