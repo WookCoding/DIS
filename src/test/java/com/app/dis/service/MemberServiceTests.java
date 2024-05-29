@@ -40,4 +40,10 @@ public class MemberServiceTests {
     public void checkMemberNicknameTest(){
         memberService.checkMemberNickname("호랑이");
     }
+
+//    핸드폰 중복 체크
+    @Test
+    public void checkMemberPhoneNumberTest(){
+        memberService.checkMemberPhoneNumber("01012341234");
+    }
 }

@@ -37,5 +37,10 @@ public class MemberServiceImpl implements MemberService {
         return memberDAO.findByMemberNickName(memberNickname);
     }
 
+    @Override
+    public Long checkMemberPhoneNumber(String memberPhoneNumber) {
+        return memberDAO.findByMemberPhoneNumber(memberPhoneNumber);
+    }
+
 
 }

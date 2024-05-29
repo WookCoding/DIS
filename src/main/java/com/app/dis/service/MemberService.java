@@ -12,4 +12,7 @@ public interface MemberService {
 
 //    닉네임 중복 체크
     public Long checkMemberNickname(String memberNickname);
+
+//    핸드폰 중복 체크
+    public Long checkMemberPhoneNumber(String memberPhoneNumber);
 }
