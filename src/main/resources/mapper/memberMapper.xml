@@ -20,4 +20,10 @@
         select member_id from tbl_member
         where member_nickname = #{memberNickname}
     </select>
+
+    <!--  핸드폰 중복 체크  -->
+    <select id="findByMemberPhoneNumber" parameterType="String" resultType="Long">
+        select member_id from tbl_member
+        where member_phone_number = #{memberPhoneNumber}
+    </select>
 </mapper>

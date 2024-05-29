@@ -44,4 +44,10 @@ public class MemberMapperTests {
     public void findByMemberNicknameTest(){
         memberMapper.findByMemberNickname("호랑이");
     }
+
+//    핸드폰 중복 체크
+    @Test
+    public void findByMemberPhoneNumberTest(){
+        memberMapper.findByMemberPhoneNumber("01012341234");
+    }
 }
