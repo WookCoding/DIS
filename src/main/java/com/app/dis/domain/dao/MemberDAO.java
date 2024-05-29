@@ -16,8 +16,14 @@ public class MemberDAO {
         memberMapper.insertMember(memberVO);
     }
 
-    //  아이디 중복 찾기
+    //  아이디 중복 검사
     public Long findByMemberIdentification(String memberIdentification){
         return memberMapper.findByMemberIdentification(memberIdentification);
     }
+    
+//    닉네임 중복 검사
+    public Long findByMemberNickName(String memberNickname) {
+        return memberMapper.findByMemberNickname(memberNickname);
+    }
+
 }

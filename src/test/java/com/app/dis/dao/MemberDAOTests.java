@@ -36,4 +36,10 @@ public class MemberDAOTests {
         memberDAO.findByMemberIdentification("12312312");
     }
 
+//    닉네임 중복 체크
+    @Test
+    public void findByMemberNickNameTest(){
+        memberDAO.findByMemberNickName("호랑이");
+    }
+
 }
