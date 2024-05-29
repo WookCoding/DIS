@@ -15,7 +15,7 @@ public class MemberServiceTests {
     @Autowired
     private MemberService memberService;
 
-
+//  회원 가입 테스트
     @Test
     public void joinTest(){
         MemberVO memberVO = MemberVO.builder()
@@ -27,5 +27,11 @@ public class MemberServiceTests {
                 .build();
 
         memberService.join(memberVO);
+    }
+
+//    아이디 중복 체크
+    @Test
+    public void checkIdTest(){
+        memberService.checkId("12312312");
     }
 }

@@ -26,4 +26,11 @@ public class MemberServiceImpl implements MemberService {
 
         memberDAO.insertMember(member);
     }
+
+    @Override
+    public Long checkId(String memberIdentification) {
+        return memberDAO.findByMemberIdentification(memberIdentification);
+    }
+
+
 }
