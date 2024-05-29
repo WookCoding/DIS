@@ -15,8 +15,14 @@ public class MemberRestController {
     private final MemberService memberService;
 
 //    아이디 중복 확인
-    @GetMapping("check-id")
-    public Long checkId(@RequestParam("memberIdentification") String memberIdentification){
-        return memberService.checkId(memberIdentification);
+    @GetMapping("check-identification")
+    public Long checkMemberIdentification(@RequestParam("memberIdentification") String memberIdentification){
+        return memberService.checkMemberIdentification(memberIdentification);
+    }
+
+//    닉네임 중복 확인
+    @GetMapping("check-nickname")
+    public Long checkMemberNickName(@RequestParam("memberNickname") String memberNickname){
+        return memberService.checkMemberNickname(memberNickname);
     }
 }
