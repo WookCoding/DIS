@@ -26,4 +26,9 @@ public class MemberDAO {
         return memberMapper.findByMemberNickname(memberNickname);
     }
 
+//    핸드폰 중복 검사
+    public Long findByMemberPhoneNumber(String memberPhoneNumber){
+        return memberMapper.findByMemberPhoneNumber(memberPhoneNumber);
+    }
+
 }

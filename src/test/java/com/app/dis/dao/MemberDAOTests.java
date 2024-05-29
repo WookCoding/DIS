@@ -42,4 +42,9 @@ public class MemberDAOTests {
         memberDAO.findByMemberNickName("호랑이");
     }
 
+//    핸드폰 중복 체크
+    @Test
+    public void findByMemberPhoneNumberTest(){
+        memberDAO.findByMemberPhoneNumber("01012341234");
+    }
 }
