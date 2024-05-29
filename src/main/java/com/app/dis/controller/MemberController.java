@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
@@ -23,6 +20,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
+//    회원 가입
     @GetMapping("member-join")
     public void join(Model model, HttpSession session){
         MemberVO memberVO = MemberVO.builder().build();
@@ -30,10 +28,9 @@ public class MemberController {
         model.addAttribute(memberVO);
     }
 
+//    회원 가입
     @PostMapping("join")
     public RedirectView join(MemberVO memberVO){
-        log.info(memberVO.getMemberIdentification());
-
         memberService.join(memberVO);
         return new RedirectView("/main/login");
     }
