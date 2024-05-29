@@ -15,4 +15,9 @@ public class MemberDAO {
     public void insertMember(MemberVO memberVO) {
         memberMapper.insertMember(memberVO);
     }
+
+    //  아이디 중복 찾기
+    public Long findByMemberIdentification(String memberIdentification){
+        return memberMapper.findByMemberIdentification(memberIdentification);
+    }
 }

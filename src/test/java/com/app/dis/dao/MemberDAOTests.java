@@ -30,4 +30,10 @@ public class MemberDAOTests {
         memberDAO.insertMember(memberVO);
     }
 
+//    아이디 중복 체크
+    @Test
+    public void findMemberIdentificationTest(){
+        memberDAO.findByMemberIdentification("12312312");
+    }
+
 }
