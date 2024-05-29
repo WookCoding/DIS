@@ -11,7 +11,7 @@ import java.util.Date;
 @ToString
 public class MemberVO {
 
-    private int memberId;
+    private Long memberId;
     private String memberIdentification;
     private String memberPassword;
     private String memberName;

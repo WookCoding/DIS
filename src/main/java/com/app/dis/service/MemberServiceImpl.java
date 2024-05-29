@@ -23,5 +23,7 @@ public class MemberServiceImpl implements MemberService {
                 .memberPassword(new String(Base64.getEncoder().encode(memberVO.getMemberPassword().getBytes())))
                 .memberName(memberVO.getMemberName())
                 .build();
+
+        memberDAO.insertMember(member);
     }
 }
