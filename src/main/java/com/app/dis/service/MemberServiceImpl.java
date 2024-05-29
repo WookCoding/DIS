@@ -28,8 +28,13 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Long checkId(String memberIdentification) {
+    public Long checkMemberIdentification(String memberIdentification) {
         return memberDAO.findByMemberIdentification(memberIdentification);
+    }
+
+    @Override
+    public Long checkMemberNickname(String memberNickname) {
+        return memberDAO.findByMemberNickName(memberNickname);
     }
 
 

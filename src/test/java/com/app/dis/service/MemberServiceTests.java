@@ -32,6 +32,12 @@ public class MemberServiceTests {
 //    아이디 중복 체크
     @Test
     public void checkIdTest(){
-        memberService.checkId("12312312");
+        memberService.checkMemberIdentification("12312312");
+    }
+
+//    닉네임 중복 체크
+    @Test
+    public void checkMemberNicknameTest(){
+        memberService.checkMemberNickname("호랑이");
     }
 }
