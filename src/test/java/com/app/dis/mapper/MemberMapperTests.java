@@ -31,11 +31,17 @@ public class MemberMapperTests {
 
 //    아이디 중복 체크
     @Test
-    public void idCheckTest(){
+    public void findByMemberIdentificationTest(){
 //        아이디 존재 O
         log.info(memberMapper.findByMemberIdentification("12312312") + "");
 //        아이디 존재 X
         log.info(memberMapper.findByMemberIdentification("123123") + "");
     }
 
+
+//    닉네임 중복 체크
+    @Test
+    public void findByMemberNicknameTest(){
+        memberMapper.findByMemberNickname("호랑이");
+    }
 }

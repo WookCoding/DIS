@@ -11,4 +11,7 @@ public interface MemberMapper {
 
 //    아이디 중복 체크
     public Long findByMemberIdentification(String memberIdentification);
+    
+//    닉네임 중복 체크
+    public Long findByMemberNickname(String memberNickname);
 }
