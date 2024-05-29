@@ -8,4 +8,10 @@
         (member_identification, member_password, member_name ,member_nickname,member_phone_number)
         values (#{memberIdentification}, #{memberPassword}, #{memberName},#{memberNickname} ,#{memberPhoneNumber})
     </insert>
+
+    <!-- 아이디 중복 체크 -->
+    <select id="findByMemberIdentification" parameterType="String" resultType="Long">
+        select member_id from tbl_member
+        where member_identification = #{memberIdentification}
+    </select>
 </mapper>

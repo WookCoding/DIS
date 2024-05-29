@@ -29,4 +29,13 @@ public class MemberMapperTests {
         memberMapper.insertMember(memberVO);
     }
 
+//    아이디 중복 체크
+    @Test
+    public void idCheckTest(){
+//        아이디 존재 O
+        log.info(memberMapper.findByMemberIdentification("12312312") + "");
+//        아이디 존재 X
+        log.info(memberMapper.findByMemberIdentification("123123") + "");
+    }
+
 }
