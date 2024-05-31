@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Base64;
+
 @Service
 @RequiredArgsConstructor
 public class DistributorServiceImpl implements DistributorService {
@@ -19,7 +21,7 @@ public class DistributorServiceImpl implements DistributorService {
         DistributorVO distributor = DistributorVO.builder()
                 .distributorEmail(distributorVO.getDistributorEmail())
                 .distributorName(distributorVO.getDistributorName())
-                .distributorPassword(distributorVO.getDistributorPassword())
+                .distributorPassword(new String(Base64.getEncoder().encode(distributorVO.getDistributorPassword().getBytes())))
                 .distributorPhoneNumber(distributorVO.getDistributorPhoneNumber())
                 .build();
 
