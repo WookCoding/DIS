@@ -41,6 +41,10 @@ fieldset {
     border: 0;
 }
 
+input {
+    outline: none;
+}
+
 legend {
     display: block;
     width: 100%;

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,9 +31,9 @@ public class MemberController {
 
 //    회원 가입
     @PostMapping("join")
-    public RedirectView join(MemberVO memberVO){
+    public RedirectView join(MemberVO memberVO) {
         memberService.join(memberVO);
-        return new RedirectView("/main/login");
+        return new RedirectView("/main/login?memberJoinSuccess=true");
     }
 
 }

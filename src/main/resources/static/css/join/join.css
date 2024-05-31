@@ -113,7 +113,7 @@
     font-weight: 400;
 }
 
-.join-button:hover {
+.join-button-active {
     background-color: #FFCD4A;
 }
 
@@ -153,4 +153,20 @@
     color: #1AA69D;
     font-size: 14px;
     font-weight: 400;
+}
+
+.sub-error-msg {
+    margin-bottom: .25rem;
+}
+
+.certification-button {
+    display: none;
+}
+
+.code-box {
+    display: none;
+}
+
+.code-active {
+    color: blueviolet;
 }

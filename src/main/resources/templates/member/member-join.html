@@ -9,132 +9,273 @@
     <link rel="icon" href="/image/favicon.png">
     <title>일반 사용자 - 회원가입</title>
 </head>
-
 <body>
-    <div class="box">
-        <div class="container">
-            <div id="header"></div>
-            <div class="join-box">
-                <div class="join-container">
-                    <div class="join-logo-box">
-                        <img src="/image/logo.png">
-                    </div>
-                    <div class="join-input-box">
-                        <form th:action="@{/member/join}" method="post" th:object="${memberVO}">
-                            <div class="join-form-box">
+<div class="box">
+    <div class="container">
+        <div id="header"></div>
+        <div class="join-box">
+            <div class="join-container">
+                <div class="join-logo-box">
+                    <img src="/image/logo.png">
+                </div>
+                <div class="join-input-box">
+                    <form th:action="@{/member/join}" method="post" th:object="${memberVO}">
+                        <div class="join-form-box">
 
-                                <div class="join-form-container">
-                                    <fieldset class="join-form-group">
-                                        <legend class="input-title">이름</legend>
-                                        <div>
-                                            <input type="text" class="input-text input-name" name="memberName"
-                                                placeholder="이름을 입력해주세요." th:field="*{memberName}">
-                                            <div class="error-msg name-error"></div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="join-form-container">
-                                    <fieldset class="join-form-group">
-                                        <legend class="input-title">닉네임</legend>
-                                        <div>
-                                            <input type="text" class="input-text input-name" name="memberNickname"
-                                                placeholder="닉네임을 입력해주세요." th:field="*{memberNickname}">
-                                            <div class="error-msg nickname-error"></div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="join-form-container">
-                                    <fieldset class="join-form-group">
-                                        <legend class="input-title">아이디</legend>
-                                        <div>
-                                            <input type="text" class="input-text input-name" name="memberIdentification"
-                                                placeholder="아이디를 입력해주세요." th:field="*{memberIdentification}">
-                                            <div class="error-msg id-error"></div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="join-form-container">
-                                    <fieldset class="join-form-group">
-                                        <legend class="input-title">비밀번호</legend>
-                                        <div style="position:relative;">
-                                            <input type="password" class="input-text input-password" name="memberPassword"
-                                                placeholder="영문+숫자 조합 8자리 이상 입력해주세요." th:field="*{memberPassword}">
-                                            <button class="sub-button">표시</button>
-                                        </div>
-                                        <div class="error-msg password-error"></div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="join-form-container">
-                                    <fieldset class="join-form-group">
-                                        <legend class="input-title">핸드폰 번호</legend>
-                                        <div style="position:relative;">
-                                            <input type="text" class="input-text input-phoneNumber" name="memberPhoneNumber"
-                                                placeholder="핸드폰 번호를 입력해주세요." maxlength="11" th:field="*{memberPhoneNumber}">
-                                            <button class="sub-button">인증</button>
-                                        </div>
-                                        <div class="error-msg password-error"></div>
-                                        <div style="position:relative;">
-                                            <input type="text" class="input-text input-name" name="number"
-                                                placeholder="인증 번호를 입력해주세요.">
-                                            <button class="sub-button">확인</button>
-                                            <div class="error-msg password-error"></div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="join-form-button-box">
-                                    <button type="submit" class="join-button">회원가입</button>
-                                    <a href="/distributor/join" class="distributor-join-a">유통업체로 가입하시나요?</a>
-                                </div>
+                            <div class="join-form-container">
+                                <fieldset class="join-form-group">
+                                    <legend class="input-title">이름</legend>
+                                    <div>
+                                        <input type="text" class="input-text input-name" name="memberName"
+                                               placeholder="이름을 입력해주세요." th:field="*{memberName}" maxlength="4">
+                                        <div class="error-msg name-error"></div>
+                                    </div>
+                                </fieldset>
                             </div>
-                        </form>
-                    </div>
+
+                            <div class="join-form-container">
+                                <fieldset class="join-form-group">
+                                    <legend class="input-title">닉네임</legend>
+                                    <div>
+                                        <input type="text" class="input-text input-name" name="memberNickname"
+                                               placeholder="닉네임을 입력해주세요." th:field="*{memberNickname}">
+                                        <div class="error-msg nickname-error"></div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="join-form-container">
+                                <fieldset class="join-form-group">
+                                    <legend class="input-title">아이디</legend>
+                                    <div>
+                                        <input type="text" class="input-text input-name" name="memberIdentification"
+                                               placeholder="아이디를 입력해주세요." th:field="*{memberIdentification}">
+                                        <div class="error-msg id-error"></div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="join-form-container">
+                                <fieldset class="join-form-group">
+                                    <legend class="input-title">비밀번호</legend>
+                                    <div style="position:relative;">
+                                        <input type="password" class="input-text input-password" name="memberPassword"
+                                               placeholder="영문+숫자 조합 8자리 이상 입력해주세요." th:field="*{memberPassword}">
+                                        <button type="button" class="sub-button show password-show-button">표시</button>
+                                    </div>
+                                    <div class="error-msg password-error"></div>
+                                </fieldset>
+                            </div>
+
+                            <div class="join-form-container">
+                                <fieldset class="join-form-group">
+                                    <legend class="input-title">핸드폰 번호</legend>
+                                    <div style="position:relative;">
+                                        <input type="text" class="input-text input-phoneNumber" name="memberPhoneNumber"
+                                               placeholder="ex)01012341234" maxlength="11"
+                                               th:field="*{memberPhoneNumber}">
+                                        <button type="button" class="sub-button certification-button">인증</button>
+                                    </div>
+                                    <div class="error-msg phoneNumber-error sub-error-msg"></div>
+                                    <div class="code-box" style="position:relative;">
+                                        <input type="text" class="input-text input-code" name="number"
+                                               placeholder="인증 번호를 입력해주세요.">
+                                        <button type="button" class="sub-button check-code-button">확인</button>
+                                    </div>
+                                    <div class="error-msg code-error"></div>
+                                </fieldset>
+                            </div>
+
+                            <div class="join-form-button-box">
+                                <button type="submit" class="join-button" disabled>회원가입</button>
+                                <a href="/distributor/join" class="distributor-join-a">유통업체로 가입하시나요?</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
         </div>
+
     </div>
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
-    $input = $(".input-text");
-    $errorMsg = $(".error-msg");
+    globalThis.code;
+</script>
+<script src="/js/main/member-join-service.js"></script>
+<script>
+    // 비밀번호 표시 숨김
+    $passwordShowButton = $(".password-show-button");
 
-    let errorTexts = ["이름을 입력해주세요.", "닉네임을 입력해주세요.","아이디를 입력해주세요.", "비밀번호를 입력해주세요.", "핸드폰 번호를 입력해주세요."];
+    $passwordInput = $(".input-password");
+    $passwordShowButton.click((e) => {
+        if ($passwordShowButton.hasClass("show")) {
+            $passwordInput.attr("type", "password");
+            $passwordShowButton.removeClass("show");
+            $passwordShowButton.text("숨김");
+        } else {
+            $passwordInput.attr("type", "text");
+            $passwordShowButton.addClass("show");
+            $passwordShowButton.text("표시");
+        }
+    });
+    // ---------------------------회원 가입 검사-------------------------------------------
+    // 이름 (0) -> 닉네임 (1) -> 아이디 (2) -> 비밀번호 (3) -> 핸드폰번호 (4) -> 인증 번호 (5)
+
+
     let check = [false, false, false, false, false, false];
+    let $errorMsg = $(".error-msg");
+    let $input = $(".input-text");
 
-    $input.each((i, e) => {
-        $(e).blur(() => {
-            if(!$(e).val()){
-                $errorMsg.eq(i).text(errorTexts[i]);
-                check[i] = false;
+    // 이름 (0) 검사
+    let $inputName = $input.eq(0);
+    // 이름 정규식 -- 한글 이름 2 - 4자 이내
+    const regName = /^[가-힣]{2,4}$/;
 
-                switch (i) {
-                    case 2 :
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                    case 7:
-                        break;
-                    case 8:
-                        break;
-                    case 9:
-                }
-            }else {
-                $errorMsg.eq(i).text("");
-                check[i] = true;
+    $inputName.blur(() => {
+        check[0] = false;
+        if (!$inputName.val()) {
+            $errorMsg.eq(0).text("이름을 입력하세요.");
+
+        } else if (!regName.test($inputName.val())) {
+            $errorMsg.eq(0).text("한글 이름 2~4자 이내 입력하세요.");
+
+        } else {
+            $errorMsg.eq(0).text("");
+            check[0] = true;
+        }
+        allCheck();
+    });
+
+    // 닉네임 (1) 검사
+    let $inputNickname = $input.eq(1);
+    $inputNickname.blur(() => {
+        check[1] = false;
+
+        joinService.checkNickname($inputNickname.val(), function (result) {
+            if (!$inputNickname.val()) {
+                $errorMsg.eq(1).text("닉네임을 입력하세요.");
+            } else if (result) {
+                $errorMsg.eq(1).text("중복된 닉네임입니다.");
+            } else {
+                $errorMsg.eq(1).text("");
+                check[1] = true;
             }
+            allCheck();
+        });
+
+    });
+
+
+    // 아이디 (2) 검사
+    let $inputIdentification = $input.eq(2);
+    const regIdentification = /^[A-Za-z0-9]{4,12}$/;
+
+    $inputIdentification.blur(() => {
+        check[2] = false;
+        joinService.checkIdentification($inputIdentification.val(), function (result) {
+            if (!$inputIdentification.val()) {
+                $errorMsg.eq(2).text("아이디를 입력하세요.");
+
+            } else if (!regIdentification.test($inputIdentification.val())) {
+                $errorMsg.eq(2).text("4자 이상 12자 이하의 대,소문자 , 숫자로 입력해주세요.");
+
+            } else if (result) {
+                $errorMsg.eq(2).text("중복된 아이디입니다.");
+
+            } else {
+                $errorMsg.eq(2).text("");
+                check[2] = true;
+            }
+            allCheck();
         });
     });
+
+    // 비밀번호(3) 검사
+    let $inputPassword = $input.eq(3);
+    const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+
+    $inputPassword.blur(() => {
+        check[3] = false;
+        if (!$inputPassword.val()) {
+            $errorMsg.eq(3).text("비밀번호를 입력해주세요.");
+
+        } else if (!regPassword.test($inputPassword.val())) {
+            $errorMsg.eq(3).text("영문+숫자 조합 8자리 이상 입력해주세요.");
+        } else {
+            $errorMsg.eq(3).text("");
+            check[3] = true;
+        }
+        allCheck();
+    });
+
+    // 핸드폰 번호 (4) 검사
+    let $inputPhoneNumber = $input.eq(4);
+    const regPhoneNumber = /^01\d{9}$/;
+
+    $inputPhoneNumber.keyup(() => {
+        check[4] = false;
+        $(".certification-button").hide();
+
+        joinService.checkPhoneNumber($inputPhoneNumber.val(), function (result) {
+            if (!$inputPhoneNumber.val()) {
+                $errorMsg.eq(4).text("핸드폰 번호를 입력해주세요.")
+
+            } else if (!regPhoneNumber.test($inputPhoneNumber.val())) {
+                $errorMsg.eq(4).text("(-) 하이픈을 뺀 11자리로 입력해주세요.");
+
+            } else if (result) {
+                $errorMsg.eq(4).text("이미 등록된 핸드폰번호입니다.");
+
+            } else {
+                $errorMsg.eq(4).text("");
+                check[4] = true;
+                $(".certification-button").show();
+            }
+            allCheck();
+        });
+
+    });
+
+    //     인증번호 발송
+    const $certificationButton = $(".certification-button");
+
+    $certificationButton.click(() => {
+        let $phoneNumberInput = $(".input-phoneNumber");
+        $phoneNumberInput.attr("readonly", true);
+        $phoneNumberInput.css("cursor", "auto");
+        $(".code-box").show();
+        $certificationButton.hide();
+        joinService.sendCode($phoneNumberInput.val());
+    });
+
+    // 인증 번호 검증
+    const $checkCodeButton = $(".check-code-button");
+    let $inputCode = $(".input-code");
+    $checkCodeButton.click(() => {
+        if (globalThis.code != $inputCode.val()) {
+            $(".code-error").text("인증번호가 틀렸습니다.");
+            $(".code-error").removeClass("code-active");
+            check[5] = false;
+        } else {
+            $(".code-error").text("인증 성공");
+            $(".code-error").addClass("code-active");
+            check[5] = true;
+        }
+        allCheck();
+    });
+
+    function allCheck() {
+        let trueCount = check.filter(e => e === true).length;
+        if (trueCount === check.length) {
+            $(".join-button").attr("disabled", false);
+            $(".join-button").addClass("join-button-active");
+        } else {
+            $(".join-button").attr("disabled", true);
+            $(".join-button").removeClass("join-button-active");
+        }
+    }
 
 </script>
 </html>
