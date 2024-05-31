@@ -120,11 +120,13 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const memberJoinSuccess = urlParams.get('memberJoinSuccess');
+
     if (memberJoinSuccess) {
         if (memberJoinSuccess === 'true') {
             alert("회원가입 성공");
         }
     }
+
 </script>
 <script src="/js/main/login.js"></script>
 </html>
