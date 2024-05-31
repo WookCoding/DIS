@@ -4,5 +4,6 @@
     <typeAliases>
         <typeAlias type="com.app.dis.domain.vo.MemberVO" alias="memberVO"></typeAlias>
         <typeAlias type="com.app.dis.domain.vo.SmsKeyVO" alias="smsKeyVO"></typeAlias>
+        <typeAlias type="com.app.dis.domain.vo.DistributorVO" alias="distributorVO"></typeAlias>
     </typeAliases>
 </configuration>
