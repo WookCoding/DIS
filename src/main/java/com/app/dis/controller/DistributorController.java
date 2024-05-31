@@ -26,7 +26,7 @@ public class DistributorController {
         model.addAttribute(distributorVO);
     }
 
-    @PostMapping("distributor-join")
+    @PostMapping("join")
     public RedirectView join(DistributorVO distributorVO){
         distributorService.join(distributorVO);
         return new RedirectView("/main/login?distributorJoin=true");
