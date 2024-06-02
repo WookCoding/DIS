@@ -31,13 +31,19 @@ public class DistributorServiceImpl implements DistributorService {
 //    이메일 중복 체크
     @Override
     public Long emailCheck(String distributorEmail) {
-        return distributorDAO.findByDistributorEmail(distributorEmail);
+        return nullTo0(distributorDAO.findByDistributorEmail(distributorEmail));
     }
 
     @Override
     public Long phoneNumberCheck(String distributorPhoneNumber) {
-        return distributorDAO.findByDistributorPhoneNumber(distributorPhoneNumber);
+        return nullTo0(distributorDAO.findByDistributorPhoneNumber(distributorPhoneNumber));
     }
 
-
+    private Long nullTo0(Long value){
+        long data = 0L;
+        if(value != null){
+            data = 1L;
+        }
+        return data;
+    }
 }
