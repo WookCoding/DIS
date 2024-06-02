@@ -19,4 +19,7 @@ public class DistributorDAO {
 
 //    이메일 중복 확인
     public Long findByDistributorEmail(String distributorEmail){ return distributorMapper.findByDistributorEmail(distributorEmail); }
+
+//    전화번호 중복 확인
+    public Long findByDistributorPhoneNumber(String distributorPhoneNumber){ return distributorMapper.findByDistributorPhoneNumber(distributorPhoneNumber); }
 }

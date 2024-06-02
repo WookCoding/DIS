@@ -34,5 +34,11 @@ public class DistributorDAOTests {
     public void findByDistributorEmailTest(){
         log.info(distributorDAO.findByDistributorEmail("test1234@naver.com").toString());
     }
+
+//    전화번호 중복 확인
+    @Test
+    public void findByDistributorPhoneNumberTest(){
+        log.info(distributorDAO.findByDistributorPhoneNumber("0213412344") + "");
+    }
     
 }
