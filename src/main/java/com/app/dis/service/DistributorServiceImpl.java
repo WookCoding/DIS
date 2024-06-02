@@ -28,4 +28,10 @@ public class DistributorServiceImpl implements DistributorService {
         distributorDAO.insertDistributor(distributor);
     }
 
+//    이메일 중복 체크
+    @Override
+    public Long emailCheck(String distributorEmail) {
+        return distributorDAO.findByDistributorEmail(distributorEmail);
+    }
+
 }

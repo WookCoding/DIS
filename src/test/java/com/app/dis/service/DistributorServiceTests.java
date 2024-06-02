@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Base64;
+import java.util.Optional;
 
 @SpringBootTest
 @Slf4j
@@ -26,5 +27,12 @@ public class DistributorServiceTests {
                 .build();
 
         distributorService.join(distributorVO);
+    }
+
+//    이메일 중복 체크
+    @Test
+    public void emailCheckTest(){
+        Long distributorId = distributorService.emailCheck("test124@naver.com");
+        log.info(distributorId + " ");
     }
 }
