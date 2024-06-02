@@ -1,18 +1,3 @@
-// 비밀번호 표시 숨김
-$passwordShowButton = $(".password-show-button");
-
-$passwordInput = $(".input-password");
-$passwordShowButton.click((e) => {
-    if ($passwordShowButton.hasClass("show")) {
-        $passwordInput.attr("type", "password");
-        $passwordShowButton.removeClass("show");
-        $passwordShowButton.text("숨김");
-    } else {
-        $passwordInput.attr("type", "text");
-        $passwordShowButton.addClass("show");
-        $passwordShowButton.text("표시");
-    }
-});
 // ---------------------------회원 가입 검사-------------------------------------------
 // 이름 (0) -> 닉네임 (1) -> 아이디 (2) -> 비밀번호 (3) -> 핸드폰번호 (4) -> 인증 번호 (5)
 
@@ -159,13 +144,4 @@ $checkCodeButton.click(() => {
     allCheck();
 });
 
-function allCheck() {
-    let trueCount = check.filter(e => e === true).length;
-    if (trueCount === check.length) {
-        $(".join-button").attr("disabled", false);
-        $(".join-button").addClass("join-button-active");
-    } else {
-        $(".join-button").attr("disabled", true);
-        $(".join-button").removeClass("join-button-active");
-    }
-}
+
