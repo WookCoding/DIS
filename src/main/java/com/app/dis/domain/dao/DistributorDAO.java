@@ -15,4 +15,8 @@ public class DistributorDAO {
     public void insertDistributor(DistributorVO distributorVO){
         distributorMapper.insertDistributor(distributorVO);
     }
+
+
+//    이메일 중복 확인
+    public Long findByDistributorEmail(String distributorEmail){ return distributorMapper.findByDistributorEmail(distributorEmail); }
 }

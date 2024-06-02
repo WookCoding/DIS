@@ -28,4 +28,11 @@ public class DistributorDAOTests {
 
         distributorDAO.insertDistributor(distributorVO);
     }
+    
+//    이메일 중복 확인
+    @Test
+    public void findByDistributorEmailTest(){
+        log.info(distributorDAO.findByDistributorEmail("test1234@naver.com").toString());
+    }
+    
 }
