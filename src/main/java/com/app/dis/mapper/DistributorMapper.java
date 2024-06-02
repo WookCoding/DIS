@@ -9,4 +9,7 @@ public interface DistributorMapper {
 
     // 회원 가입
     public void insertDistributor(DistributorVO distributorVO);
+
+//    이메일 중복 확인
+    public Long findByDistributorEmail(String distributorEmail);
 }

@@ -19,6 +19,7 @@ public class DistributorController {
 
     private final DistributorService distributorService;
 
+//    회원가입 페이지
     @GetMapping("distributor-join")
     public void join(Model model, HttpSession session) {
         DistributorVO distributorVO = DistributorVO.builder().build();
@@ -26,6 +27,7 @@ public class DistributorController {
         model.addAttribute(distributorVO);
     }
 
+//    회원 가입
     @PostMapping("join")
     public RedirectView join(DistributorVO distributorVO){
         distributorService.join(distributorVO);

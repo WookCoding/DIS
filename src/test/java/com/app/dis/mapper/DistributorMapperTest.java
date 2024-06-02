@@ -27,4 +27,10 @@ public class DistributorMapperTest {
 
         distributorMapper.insertDistributor(distributorVO);
     }
+
+//    이메일 중복 확인
+    @Test
+    public void findByDistributorEmailTest(){
+        log.info(distributorMapper.findByDistributorEmail("test1234@naver.com").toString());
+    }
 }
