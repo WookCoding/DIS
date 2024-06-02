@@ -12,4 +12,7 @@ public interface DistributorMapper {
 
 //    이메일 중복 확인
     public Long findByDistributorEmail(String distributorEmail);
+
+//    전화번호 확인
+    public Long findByDistributorPhoneNumber(String distributorPhoneNumber);
 }

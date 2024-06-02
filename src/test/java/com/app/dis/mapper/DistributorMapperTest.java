@@ -33,4 +33,10 @@ public class DistributorMapperTest {
     public void findByDistributorEmailTest(){
         log.info(distributorMapper.findByDistributorEmail("test1234@naver.com").toString());
     }
+
+//    전화번호 확인
+    @Test
+    public void findByDistributorPhoneNumberTest(){
+        log.info(distributorMapper.findByDistributorPhoneNumber("0212341234") + "");
+    }
 }

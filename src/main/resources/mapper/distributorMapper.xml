@@ -15,4 +15,10 @@
         where distributor_email = #{distributorEmail}
     </select>
 
+    <!-- 전화 번호 확인-->
+    <select id="findByDistributorPhoneNumber" resultType="long">
+        select distributor_id from tbl_distributor
+        where distributor_phone_number = #{distributorPhoneNumber}
+    </select>
+
 </mapper>
