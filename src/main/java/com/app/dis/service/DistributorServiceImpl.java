@@ -34,4 +34,10 @@ public class DistributorServiceImpl implements DistributorService {
         return distributorDAO.findByDistributorEmail(distributorEmail);
     }
 
+    @Override
+    public Long phoneNumberCheck(String distributorPhoneNumber) {
+        return distributorDAO.findByDistributorPhoneNumber(distributorPhoneNumber);
+    }
+
+
 }

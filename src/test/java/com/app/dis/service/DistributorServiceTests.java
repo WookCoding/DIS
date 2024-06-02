@@ -35,4 +35,10 @@ public class DistributorServiceTests {
         Long distributorId = distributorService.emailCheck("test124@naver.com");
         log.info(distributorId + " ");
     }
+
+//    전화번호 중복 체크
+    @Test
+    public void phoneNumberCheck(){
+        log.info(distributorService.phoneNumberCheck("0212341234") + "");
+    }
 }

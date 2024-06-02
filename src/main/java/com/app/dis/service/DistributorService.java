@@ -9,4 +9,7 @@ public interface DistributorService {
 
 //    이메일 중복 확인
     public Long emailCheck(String distributorEmail);
+
+//    전화번호 중복 확인
+    public Long phoneNumberCheck(String distributorPhoneNumber);
 }
