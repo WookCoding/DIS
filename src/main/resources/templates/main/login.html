@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main/header.css">
     <link rel="stylesheet" href="/css/login/login.css">
     <link rel="icon" href="/image/favicon.png">
     <title>로그인 화면</title>
@@ -12,10 +13,8 @@
 <body>
     <div class="box">
         <div class="container">
-
-            <div id="header"></div>
-
             <div class="login-box">
+                <th:block th:replace="~{main/header :: header}"></th:block>
                 <div class="login-container">
                     <div class="login-logo-box">
                         <img src="/image/logo.png">
@@ -27,7 +26,7 @@
                                 <button class="select-login-button select-distributor">유통업체 로그인</button>
                             </div>
                         </div>
-                        <form action="#">
+                        <form th:action="@{/member/member-login}" method="post" class="login-form">
                             <!-- 일반 사용자 로그인 -->
                             <div class="login-form-box member-login">
                                 <div class="login-form-container">
@@ -55,6 +54,7 @@
                                 </div>
                             </div>
 
+
                             <!-- 유통업체 로그인 -->
                             <div class="login-form-box distributor-login">
                                 <div class="login-form-container">
@@ -62,7 +62,7 @@
                                         <legend class="input-title">이메일</legend>
                                         <div>
                                             <input type="text" class="input-text input-email" name="distributorEmail"
-                                                placeholder="이메일을 입력해주세요.">
+                                                placeholder="이메일을 입력해주세요." >
                                             <div class="error-msg email-error"></div>
                                         </div>
                                     </fieldset>
@@ -78,7 +78,7 @@
                                     </fieldset>
                                 </div>
                                 <div class="login-form-container">
-                                    <button class="login-button">로그인</button>
+                                    <button type="submit" class="login-button">로그인</button>
                                 </div>
                             </div>
 
@@ -117,6 +117,7 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="/js/main/header.js"></script>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const memberJoinSuccess = urlParams.get('memberJoinSuccess');

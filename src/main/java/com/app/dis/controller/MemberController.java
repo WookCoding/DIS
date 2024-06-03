@@ -37,7 +37,7 @@ public class MemberController {
     }
 
 //    로그인
-    @PostMapping("login")
+    @PostMapping("member-login")
     public RedirectView login(MemberVO memberVO, HttpSession session) {
         Long memberId = memberService.login(memberVO);
         boolean check = false;

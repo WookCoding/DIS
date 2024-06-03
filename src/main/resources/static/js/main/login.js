@@ -8,14 +8,21 @@ $inputEmail = $(".input-email");
 $idError = $(".id-error");
 $emailError = $(".email-error");
 $passwordError = $(".password-error");
+$loginForm = $(".login-form");
 
 // 일반 로그인 버튼 클릭 
 $selectMemberLoginButton.click((e) =>{
     if(!$(e).hasClass("select-login-button-active")){
         $selectMemberLoginButton.addClass("select-login-button-active");
         $selectDistributorLoginButton.removeClass("select-login-button-active");
+
         $memberLogin.show();
         $distributorLogin.hide();
+
+        $inputEmail.val("");
+        $inputPassword.val("");
+
+        $loginForm.attr("action", "/member/member-login");
     }
 });
 
@@ -23,9 +30,15 @@ $selectMemberLoginButton.click((e) =>{
 $selectDistributorLoginButton.click((e) =>{
     if(!$(e).hasClass("select-login-button-active")){
         $selectDistributorLoginButton.addClass("select-login-button-active");
+        $selectMemberLoginButton.removeClass("select-login-button-active");
+
         $distributorLogin.show();
         $memberLogin.hide();
-        $selectMemberLoginButton.removeClass("select-login-button-active");
+
+        $inputIdentification.val("");
+        $inputPassword.val("");
+
+        $loginForm.attr("action", "/distributor/login");
     }
 });
 
