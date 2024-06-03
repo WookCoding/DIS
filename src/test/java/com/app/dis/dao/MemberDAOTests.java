@@ -2,11 +2,13 @@ package com.app.dis.dao;
 
 import com.app.dis.domain.dao.MemberDAO;
 import com.app.dis.domain.vo.MemberVO;
+import com.app.dis.encry.EncryptUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.lang.reflect.Member;
 import java.util.Base64;
 
 @SpringBootTest
@@ -46,5 +48,17 @@ public class MemberDAOTests {
     @Test
     public void findByMemberPhoneNumberTest(){
         memberDAO.findByMemberPhoneNumber("01012341234");
+    }
+
+//    로그인
+    @Test
+    public void selectByMemberIdentificationAndMemberPasswordTest(){
+        MemberVO memberVO = MemberVO.builder()
+                .memberIdentification("a11455")
+                .memberPassword(EncryptUtils.sha256("hello"))
+                .build();
+
+        Long memberId = memberDAO.selectByMemberIdentificationAndMemberPassword(memberVO);
+        log.info("memberId = " + memberId);
     }
 }

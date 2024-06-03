@@ -31,4 +31,9 @@ public class MemberDAO {
         return memberMapper.findByMemberPhoneNumber(memberPhoneNumber);
     }
 
+//    로그인
+    public Long selectByMemberIdentificationAndMemberPassword(MemberVO memberVO) {
+        return memberMapper.selectByMemberIdentificationAndMemberPassword(memberVO);
+    }
+
 }
