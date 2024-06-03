@@ -22,4 +22,9 @@ public class DistributorDAO {
 
 //    전화번호 중복 확인
     public Long findByDistributorPhoneNumber(String distributorPhoneNumber){ return distributorMapper.findByDistributorPhoneNumber(distributorPhoneNumber); }
+
+//    로그인
+    public Long selectByDistributorEmailAndDistributorPassword(DistributorVO distributorVO) {
+        return distributorMapper.selectByDistributorEmailAndDistributorPassword(distributorVO);
+    }
 }

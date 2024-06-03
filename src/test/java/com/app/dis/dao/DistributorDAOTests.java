@@ -2,6 +2,7 @@ package com.app.dis.dao;
 
 import com.app.dis.domain.dao.DistributorDAO;
 import com.app.dis.domain.vo.DistributorVO;
+import com.app.dis.encry.EncryptUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,19 @@ public class DistributorDAOTests {
     @Test
     public void findByDistributorPhoneNumberTest(){
         log.info(distributorDAO.findByDistributorPhoneNumber("0213412344") + "");
+    }
+
+//    로그인
+    @Test
+    public void selectByDistributorEmailAndDistributorPasswordTest(){
+        DistributorVO distributorVO = DistributorVO.builder()
+                .distributorEmail("test@naver.com")
+                .distributorPassword(EncryptUtils.sha256("test1234"))
+                .build();
+
+        Long distributorId = distributorDAO.selectByDistributorEmailAndDistributorPassword(distributorVO);
+
+        log.info("번호 = " + distributorId);
     }
     
 }
