@@ -1,6 +1,7 @@
 package com.app.dis.controller;
 
 import com.app.dis.domain.vo.MemberVO;
+import com.app.dis.service.KaKaoService;
 import com.app.dis.service.MemberService;
 import com.app.dis.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import java.io.IOException;
 public class MemberController {
 
     private final MemberService memberService;
+    private final KaKaoService kaKaoService;
 
 //    회원 가입
     @GetMapping("member-join")
@@ -49,5 +51,29 @@ public class MemberController {
 
         return new RedirectView("/main/login?memberLoginSuccess=" + check);
     }
+    //    카카오 로그인
+    @GetMapping("kakao-login")
+    public String kakaoCallback(String code, HttpSession session) throws Exception {
+        String token = kaKaoService.getKaKaoAccessToken(code);
+        MemberVO kakaoInfo = kaKaoService.getKaKaoInfo(token);
+
+        if(memberService.checkMemberNickname(kakaoInfo.getMemberNickname()) == 0){
+            session.setAttribute("memberVO", kakaoInfo);
+            return "redirect:no-join";
+        }
+
+        session.setAttribute("memberVO", kakaoInfo);
+        return "redirect:/main/";
+    }
+
+    //    카카오 로그아웃
+    @GetMapping("/kakao-logout")
+    public String kakaoLogout(HttpSession session){
+        log.info("logout");
+        kaKaoService.logoutKakao((String)session.getAttribute("token"));
+        session.invalidate();
+        return "redirect:main/";
+    }
+
 
 }
