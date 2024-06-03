@@ -1,6 +1,8 @@
 package com.app.dis.mapper;
 
 import com.app.dis.domain.vo.MemberVO;
+import com.app.dis.encry.EncryptUtils;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +51,16 @@ public class MemberMapperTests {
     @Test
     public void findByMemberPhoneNumberTest(){
         memberMapper.findByMemberPhoneNumber("01012341234");
+    }
+
+//    로그인
+    @Test
+    public void selectByMemberIdentificationAndMemberPasswordTest(){
+        MemberVO memberVO  = MemberVO.builder().memberIdentification("a11455")
+                        .memberPassword(EncryptUtils.sha256("hello"))
+                        .build();
+
+        Long memberId = memberMapper.selectByMemberIdentificationAndMemberPassword(memberVO);
+        log.info("번호 : " + memberId );
     }
 }

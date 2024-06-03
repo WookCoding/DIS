@@ -17,4 +17,7 @@ public interface MemberMapper {
 
 //    핸드폰 중복 체크
     public Long findByMemberPhoneNumber(String memberPhoneNumber);
+
+//    로그인
+    public Long selectByMemberIdentificationAndMemberPassword(MemberVO memberVO);
 }
