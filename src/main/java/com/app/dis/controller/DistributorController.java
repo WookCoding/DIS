@@ -48,4 +48,11 @@ public class DistributorController {
         return new RedirectView("/main/login?distributorLoginSuccess=" + check);
     }
 
+//    로그아웃
+    @GetMapping("logout")
+    public RedirectView logout(HttpSession session){
+        session.invalidate();
+        return new RedirectView("/main/login");
+    }
+
 }

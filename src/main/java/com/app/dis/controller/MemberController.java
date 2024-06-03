@@ -51,28 +51,30 @@ public class MemberController {
 
         return new RedirectView("/main/login?memberLoginSuccess=" + check);
     }
+
+//    로그 아웃
+    @GetMapping("logout")
+    public RedirectView logout(HttpSession session){
+        session.invalidate();
+        return new RedirectView("/main/login");
+    }
+
     //    카카오 로그인
     @GetMapping("kakao-login")
     public String kakaoCallback(String code, HttpSession session) throws Exception {
         String token = kaKaoService.getKaKaoAccessToken(code);
         MemberVO kakaoInfo = kaKaoService.getKaKaoInfo(token);
 
-        if(memberService.checkMemberNickname(kakaoInfo.getMemberNickname()) == 0){
-            session.setAttribute("memberVO", kakaoInfo);
-            return "redirect:no-join";
-        }
-
         session.setAttribute("memberVO", kakaoInfo);
-        return "redirect:/main/";
+        return "redirect:/main/login";
     }
 
     //    카카오 로그아웃
     @GetMapping("/kakao-logout")
     public String kakaoLogout(HttpSession session){
-        log.info("logout");
         kaKaoService.logoutKakao((String)session.getAttribute("token"));
         session.invalidate();
-        return "redirect:main/";
+        return "redirect:/main/login";
     }
 
 
