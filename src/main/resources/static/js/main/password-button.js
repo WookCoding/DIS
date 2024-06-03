@@ -2,14 +2,15 @@
 $passwordShowButton = $(".password-show-button");
 
 $passwordInput = $(".input-password");
-$passwordShowButton.click((e) => {
-    if (!$passwordShowButton.hasClass("show")) {
-        $passwordInput.attr("type", "password");
+$passwordShowButton.click(() => {
+    if ($passwordShowButton.hasClass("show")) {
+        $passwordInput.attr("type", "text");
         $passwordShowButton.removeClass("show");
         $passwordShowButton.text("숨김");
     } else {
-        $passwordInput.attr("type", "text");
+
         $passwordShowButton.addClass("show");
+        $passwordInput.attr("type", "password");
         $passwordShowButton.text("표시");
     }
 });
