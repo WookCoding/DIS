@@ -38,7 +38,7 @@ $selectDistributorLoginButton.click((e) =>{
         $inputIdentification.val("");
         $inputPassword.val("");
 
-        $loginForm.attr("action", "/distributor/login");
+        $loginForm.attr("action", "/distributor/distributor-login");
     }
 });
 

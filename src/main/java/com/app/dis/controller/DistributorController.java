@@ -42,9 +42,10 @@ public class DistributorController {
 
         if(distributorId != null){
             check = true;
+            session.setAttribute("distributorId", distributorId);
         }
 
-        return new RedirectView("/main/login/distributorLoginSuccess=" + check);
+        return new RedirectView("/main/login?distributorLoginSuccess=" + check);
     }
 
 }

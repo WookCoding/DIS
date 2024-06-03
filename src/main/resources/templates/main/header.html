@@ -35,20 +35,22 @@
                     </div>
                 </div>
                 <!-- 로그인 x -->
-                <div class="header-login-join-button-box no-login-status" >
+                <th:block th:if="${#strings.isEmpty(session.memberId)} and ${#strings.isEmpty(session.distributorId)}">
+                <div class="header-login-join-button-box no-login-status">
                     <div class="header-login-join-box">
                         <ul class="header-login-join-ul">
-                            <li class="header-login-join-li"><a href="#"><span>로그인</span></a></li>
-                            <li class="header-login-join-li"><a href="#"><span>회원가입</span></a></li>
+                            <li class="header-login-join-li"><a th:href="@{/main/login}"><span>로그인</span></a></li>
+                            <li class="header-login-join-li"><a th:href="@{/member/join}"><span>회원가입</span></a></li>
                         </ul>
                     </div>
                     <button class="header-distributor-join-button btn">
                         <a href="#">유통업체 가입</a>
                     </button>
                 </div>
-
+                </th:block>
                 <!-- 로그인 o -->
-                <div class="header-login-join-button-box login-status"  style="display: none;">
+                <th:block th:unless="${not #strings.isEmpty(session.memberId)} or ${not #strings.isEmpty(session.distributorId)}">
+                <div class="header-login-join-button-box login-status">
                     <div class="header-login-join-box">
                         <div>
                             <ul class="header-login-join-ul">
@@ -69,7 +71,7 @@
                             </div>
                             <div class="header-member-menu-dropdown">
                                 <div class="header-member-info-box">
-                                    <h4 class="header-member-name">xxx 고객님</h4>
+                                    <h4 class="header-member-name">xxx고객님 환영</h4>
                                 </div>
                                 <ul class="header-member-login-menu-ul">
                                     <li class="header-member-login-menu-li">
@@ -86,6 +88,8 @@
                         </div>
                     </div>
                 </div>
+                </th:block>
+
 
                 <div class="header-mobile-member-menu-box">
                     <div class="header-mobile-member-menu-container member-menu-open">
