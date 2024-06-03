@@ -15,4 +15,7 @@ public interface DistributorMapper {
 
 //    전화번호 확인
     public Long findByDistributorPhoneNumber(String distributorPhoneNumber);
+
+//    로그인
+    public Long selectByDistributorEmailAndDistributorPassword(DistributorVO distributorVO);
 }

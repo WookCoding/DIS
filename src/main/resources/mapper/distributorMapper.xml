@@ -10,15 +10,21 @@
     </insert>
 
 <!-- 이메일 중복 확인-->
-    <select id="findByDistributorEmail" resultType="long">
+    <select id="findByDistributorEmail" resultType="Long">
         select distributor_id from tbl_distributor
         where distributor_email = #{distributorEmail}
     </select>
 
     <!-- 전화 번호 확인-->
-    <select id="findByDistributorPhoneNumber" resultType="long">
+    <select id="findByDistributorPhoneNumber" resultType="Long">
         select distributor_id from tbl_distributor
         where distributor_phone_number = #{distributorPhoneNumber}
+    </select>
+
+    <!-- 로그인 -->
+    <select id="selectByDistributorEmailAndDistributorPassword" resultType="Long">
+        select distributor_id from tbl_distributor
+        where distributor_email = #{distributorEmail} and distributor_password = #{distributorPassword}
     </select>
 
 </mapper>
