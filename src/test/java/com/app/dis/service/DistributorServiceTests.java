@@ -41,4 +41,15 @@ public class DistributorServiceTests {
     public void phoneNumberCheck(){
         log.info(distributorService.phoneNumberCheck("0212341234") + "");
     }
+
+//    로그인
+    @Test
+    public void loginTEst(){
+        DistributorVO distributorVO = DistributorVO.builder()
+                .distributorEmail("test@naver.com")
+                .distributorPassword("test1234")
+                .build();
+
+        log.info("번호 : " + distributorService.login(distributorVO));
+    }
 }

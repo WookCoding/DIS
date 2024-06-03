@@ -12,4 +12,7 @@ public interface DistributorService {
 
 //    전화번호 중복 확인
     public Long phoneNumberCheck(String distributorPhoneNumber);
+
+//    로그인
+    public Long login(DistributorVO distributorVO);
 }

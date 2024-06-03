@@ -39,6 +39,24 @@ public class DistributorServiceImpl implements DistributorService {
         return nullTo0(distributorDAO.findByDistributorPhoneNumber(distributorPhoneNumber));
     }
 
+    @Override
+    public Long login(DistributorVO distributorVO) {
+        Long distributorId = null;
+
+        DistributorVO distributor = DistributorVO.builder()
+                .distributorEmail(distributorVO.getDistributorEmail())
+                .distributorPassword(EncryptUtils.sha256(distributorVO.getDistributorPassword()))
+                .build();
+
+        distributorId = distributorDAO.selectByDistributorEmailAndDistributorPassword(distributor);
+
+        if(distributor != null){
+            return distributorId;
+        }
+
+        return null;
+    }
+
     private Long nullTo0(Long value){
         long data = 0L;
         if(value != null){
