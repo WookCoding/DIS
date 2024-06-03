@@ -46,4 +46,14 @@ public class MemberServiceTests {
     public void checkMemberPhoneNumberTest(){
         memberService.checkMemberPhoneNumber("01012341234");
     }
+
+//    로그인
+    @Test
+    public void loginTest(){
+        MemberVO memberVO = MemberVO.builder()
+                .memberIdentification("a11455")
+                .memberPassword("hello1")
+                .build();
+
+    }
 }

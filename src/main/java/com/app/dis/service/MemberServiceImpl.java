@@ -5,6 +5,7 @@ import com.app.dis.domain.vo.MemberVO;
 import com.app.dis.encry.EncryptUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.MessageDigest;
 import java.util.Base64;
@@ -42,6 +43,23 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Long checkMemberPhoneNumber(String memberPhoneNumber) {
         return nullTo0(memberDAO.findByMemberPhoneNumber(memberPhoneNumber));
+    }
+
+    @Override
+    @Transactional
+    public Long login(MemberVO memberVO) {
+        Long memberId = null;
+        MemberVO member = MemberVO.builder()
+                .memberPassword(EncryptUtils.sha256(memberVO.getMemberPassword()))
+                .memberIdentification(memberVO.getMemberIdentification())
+                .build();
+
+        memberId = memberDAO.selectByMemberIdentificationAndMemberPassword(member);
+
+        if(memberId != null){
+            return memberId;
+        }
+        return null;
     }
 
     private Long nullTo0(Long value){

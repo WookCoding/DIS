@@ -15,4 +15,7 @@ public interface MemberService {
 
 //    핸드폰 중복 체크
     public Long checkMemberPhoneNumber(String memberPhoneNumber);
+
+//    로그인
+    public Long login(MemberVO memberVO);
 }
