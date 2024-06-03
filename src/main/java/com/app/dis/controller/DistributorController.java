@@ -33,4 +33,18 @@ public class DistributorController {
         distributorService.join(distributorVO);
         return new RedirectView("/main/login?distributorJoin=true");
     }
+
+//    로그인
+    @PostMapping("distributor-login")
+    public RedirectView login(DistributorVO distributorVO, HttpSession session){
+        boolean check = false;
+        Long distributorId = distributorService.login(distributorVO);
+
+        if(distributorId != null){
+            check = true;
+        }
+
+        return new RedirectView("/main/login/distributorLoginSuccess=" + check);
+    }
+
 }
