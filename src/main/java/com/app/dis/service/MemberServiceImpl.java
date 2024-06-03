@@ -2,9 +2,11 @@ package com.app.dis.service;
 
 import com.app.dis.domain.dao.MemberDAO;
 import com.app.dis.domain.vo.MemberVO;
+import com.app.dis.encry.EncryptUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.security.MessageDigest;
 import java.util.Base64;
 
 
@@ -20,7 +22,7 @@ public class MemberServiceImpl implements MemberService {
                 .memberIdentification(memberVO.getMemberIdentification())
                 .memberPhoneNumber(memberVO.getMemberPhoneNumber())
                 .memberNickname(memberVO.getMemberNickname())
-                .memberPassword(new String(Base64.getEncoder().encode(memberVO.getMemberPassword().getBytes())))
+                .memberPassword(EncryptUtils.sha256(memberVO.getMemberPassword()))
                 .memberName(memberVO.getMemberName())
                 .build();
 
@@ -29,19 +31,25 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Long checkMemberIdentification(String memberIdentification) {
-        return memberDAO.findByMemberIdentification(memberIdentification);
+        return nullTo0(memberDAO.findByMemberIdentification(memberIdentification));
     }
 
     @Override
     public Long checkMemberNickname(String memberNickname) {
-        return memberDAO.findByMemberNickName(memberNickname);
+        return nullTo0(memberDAO.findByMemberNickName(memberNickname));
     }
 
     @Override
     public Long checkMemberPhoneNumber(String memberPhoneNumber) {
-        return memberDAO.findByMemberPhoneNumber(memberPhoneNumber);
+        return nullTo0(memberDAO.findByMemberPhoneNumber(memberPhoneNumber));
     }
 
-
+    private Long nullTo0(Long value){
+        long data = 0L;
+        if(value != null){
+            data = 1L;
+        }
+        return data;
+    }
 
 }

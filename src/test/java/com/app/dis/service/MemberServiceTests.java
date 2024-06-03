@@ -19,11 +19,11 @@ public class MemberServiceTests {
     @Test
     public void joinTest(){
         MemberVO memberVO = MemberVO.builder()
-                .memberIdentification("a1145")
-                .memberName("이름45")
-                .memberNickname("닉네임4")
-                .memberPassword(new String(Base64.getEncoder().encode(("hello").getBytes())))
-                .memberPhoneNumber("010123416")
+                .memberIdentification("a11455")
+                .memberName("이름456")
+                .memberNickname("닉네임47")
+                .memberPassword("hello")
+                .memberPhoneNumber("0101231416")
                 .build();
 
         memberService.join(memberVO);

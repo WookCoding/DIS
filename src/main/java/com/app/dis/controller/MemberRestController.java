@@ -17,19 +17,19 @@ public class MemberRestController {
 //    아이디 중복 확인
     @GetMapping("check-identification")
     public Long checkMemberIdentification(@RequestParam("memberIdentification") String memberIdentification){
-        return nullTo0(memberService.checkMemberIdentification(memberIdentification));
+        return memberService.checkMemberIdentification(memberIdentification);
     }
 
 //    닉네임 중복 확인
     @GetMapping("check-nickname")
     public Long checkMemberNickName(@RequestParam("memberNickname") String memberNickname){
-        return nullTo0(memberService.checkMemberNickname(memberNickname));
+        return memberService.checkMemberNickname(memberNickname);
     }
 
 //    핸드폰 중복 확인
     @GetMapping("check-phonenumber")
     public Long checkMemberPhoneNumber(@RequestParam("memberPhoneNumber") String memberPhoneNumbrer){
-        return nullTo0(memberService.checkMemberPhoneNumber(memberPhoneNumbrer));
+        return memberService.checkMemberPhoneNumber(memberPhoneNumbrer);
     }
 
 //  sms 발송 인증번호
@@ -38,10 +38,4 @@ public class MemberRestController {
         return checkService.sendCertificationNumber(memberPhoneNumber);
     }
 
-    private Long nullTo0(Long nullOrLong){
-        if(nullOrLong != null){
-            return 1L;
-        }
-        return 0L;
-    }
 }
