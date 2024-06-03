@@ -36,4 +36,18 @@ public class MemberController {
         return new RedirectView("/main/login?memberJoinSuccess=true");
     }
 
+//    로그인
+    @PostMapping("login")
+    public RedirectView login(MemberVO memberVO, HttpSession session) {
+        Long memberId = memberService.login(memberVO);
+        boolean check = false;
+
+        if(memberId != null){
+            check = true;
+            session.setAttribute("memberId", memberId);
+        }
+
+        return new RedirectView("/main/login?memberLoginSuccess=" + check);
+    }
+
 }
