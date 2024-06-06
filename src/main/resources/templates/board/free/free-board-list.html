@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="icon" href="/image/favicon.png">
     <link rel="stylesheet" href="/static/css/board/distributor-board-list.css">
-    <title>유통업체 게시판</title>
+    <title>자유 게시판</title>
 </head>
 
 <body>
@@ -40,10 +40,10 @@
                                         <li class="select-board-menu-li">
                                             <a class="board-menu-title" href="#">유통업체 게시판</a>
                                         </li>
-                                        <li class="select-board-menu-li ">
+                                        <li class="select-board-menu-li select-board-menu-active">
                                             <a class="board-menu-title" href="#">자유 게시판</a>
                                         </li>
-                                        <li class="select-board-menu-li select-board-menu-active">
+                                        <li class="select-board-menu-li">
                                             <a class="board-menu-title" href="#">문의 게시판</a>
                                         </li>
                                     </ul>
@@ -51,16 +51,34 @@
                             </div>
 
                             <div class="board-content-layout">
+                                <div class="search-box">
+                                    <div class="search-container">
+                                        <div class="search-input-box">
+                                            <div class="search-input-container">
+                                                <img src="/static/image/serach-icon.png" class="serach-icon">
+                                                <input type="text" class="search-input" placeholder="검색어를 입력하세요.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <article class="board-content-box">
                                     <div class="board-content-list-title">
-                                        <h2>문의 게시판</h2>
+                                        <h2>전체</h2>
+                                        <div class="list-order-box">
+                                            <div class="list-order-container">
+                                                <button type="button" class="list-order-button list-order-button-active">최신순</button>
+                                            </div>
+                                            <div class="list-order-container">
+                                                <button type="button" class="list-order-button">인기순</button>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <ul class="board-content-ul">
                                         
                                         <li class="board-content-li">
                                             <a href="#">
-                                                <p class="menu-title">문의 게시판</p>
+                                                <p class="menu-title">자유 게시판</p>
                                                 <div class="feed-box">
                                                     <div class="feed-container">
                                                         <section>
@@ -74,10 +92,16 @@
                                                         class="content-img">
                                                 </div>
                                                 <div class="like-reply-count-box">
+                                                    <div style="display: inherit;">
+                                                        <p class="count-box">
+                                                            <img src="/static/image/fill-heart.png" class="heart">
+                                                            <span class="heart-count">0</span>
+                                                        </p>
                                                         <p class="count-box">
                                                             <img src="/static/image/chat-icon.png" class="like">
                                                             <span class="heart-count">0</span>
                                                         </p>
+                                                    </div>
                                                     <span class="write-time">1분전</span>
                                                 </div>
                                             </a>
