@@ -20,20 +20,6 @@
                     <ul>
                         <li class="management-li">
                             <div class="management-content-title-box">
-                                전화번호
-                                <button type="button" class="management-modify-button">수정</button>
-                            </div>
-                            <div class="management-value-box">
-                                <p class="management-value">02-1234-1234</p>
-                                <!-- <input type="text" placeholder="전화번호을 입력해주세요." class="management-input"> -->
-                            </div>
-                            <!-- <div class="management-button-box">
-                                <button type="button" class="cancel-button">취소</button>
-                                <button type="button" class="accept-button">수정하기</button>
-                            </div> -->
-                        </li>
-                        <li class="management-li">
-                            <div class="management-content-title-box">
                                 직원수
                                 <button type="button" class="management-modify-button">수정</button>
                             </div>
@@ -52,8 +38,28 @@
                                 <button type="button" class="management-modify-button">수정</button>
                             </div>
                             <div class="management-value-box">
-                                <p class="management-value">X</p>
-                                <!-- <input type="text" placeholder="전화번호을 입력해주세요." class="management-input"> -->
+                                <!-- <p class="management-value">오후 7시 ~ 오후 9시</p> -->
+                                <div class="management-time-box">
+                                    <div>
+                                        <select class="select-box">
+                                            <option value="오전">오전</option>
+                                            <option value="오후">오후</option>
+                                        </select>
+                                        <select class="time select-box">
+                                        </select>
+                                    </div>
+                                    <input type="text" placeholder="전화번호을 입력해주세요." class="management-input" hidden>
+                                    <p> ~ </p>
+                                    <div>
+                                        <select class="select-box">
+                                            <option value="오전">오전</option>
+                                            <option value="오후">오후</option>
+                                        </select>
+                                        <select class="time select-box">
+                                        </select>
+                                    </div>
+                                    <input type="text" placeholder="전화번호을 입력해주세요." class="management-input" hidden>
+                                </div>
                             </div>
                             <!-- <div class="management-button-box">
                                 <button type="button" class="cancel-button">취소</button>
@@ -66,13 +72,13 @@
                                 <button type="button" class="management-modify-button">수정</button>
                             </div>
                             <div class="management-value-box">
-                                <p class="management-value">X</p>
-                                <textarea placeholder="소개글을 작성해주세요." rows="5" class="distributor-introduce"></textarea>
+                                <p class="management-value">없음</p>
+                                <!-- <textarea placeholder="소개글을 작성해주세요." rows="5" class="distributor-introduce"></textarea> -->
                             </div>
-                            <div class="management-button-box">
+                            <!-- <div class="management-button-box">
                                 <button type="button" class="cancel-button">취소</button>
                                 <button type="button" class="accept-button">수정하기</button>
-                            </div>
+                            </div> -->
                         </li>
                     </ul>
                 </div>
@@ -80,4 +86,6 @@
         </div>
      </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="/static/js/select/time.js"></script>
 </html>
