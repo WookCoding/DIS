@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Builder @ToString
 public class DistributorVO {
@@ -13,5 +15,9 @@ public class DistributorVO {
     private String distributorEmail;
     private String distributorPassword;
     private String distributorPhoneNumber;
-    private String distributor_join_date;
+    private String distributorAddress;
+    private Long distributorEmployeesCount;
+    private String distributorConsultationTime;
+    private LocalDateTime distributorJoinDate;
+
 }
